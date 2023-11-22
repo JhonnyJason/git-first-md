@@ -1,3 +1,6 @@
+# Git First MD
+
+This repository is for MD Files later synced on hackmd.io - but first just created and worked on in git.
 
 ---
 
