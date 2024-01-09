@@ -10,14 +10,17 @@ We want to backup our data of our home directory. We want to optimize:
 
 The magic command we use is:
 ```bash
-tar -cfp  -I "zstd -5" /backups/backup-$(date +%d-%m-%Y) ~
+tar -I "zstd -5" -cpf  /backups/backup-$(date +%d-%m-%Y).tar.zst ~
 ```
 
 ## Our chosen Flags
-- `c` creates a new tarball.
-- `f` specifies that a file is used for the output of the tarball.
-- `p` keep file permissions.
+
 - `-I "zstd -5"` specifies the exact compression algorithm `zstd` with compression level `5`. This is our preferred tradeoff to time consumption vs. compression size.
+- `c` creates a new tarball.
+- `p` keep file permissions.
+- `f` specifies that a file is used for the output of the tarball.
+
+**Notice: The order of the Flags is important!** (Or specifically the place of the `f`.)
 
 ## Further steps
 
